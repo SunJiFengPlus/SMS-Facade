@@ -10,7 +10,6 @@ import lombok.Data;
 public class Message {
     private Integer country;
     private String phone;
-    private String message;
     private String templateId;
     private String[] args;
 }
