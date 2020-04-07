@@ -19,4 +19,6 @@ sms:
 ```java
 @Autowired
 private Sender sender;
+
+sender.send(Message.of(templateId, param, phone));
 ```
