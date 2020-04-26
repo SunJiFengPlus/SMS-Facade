@@ -9,11 +9,11 @@ import java.util.List;
  * @since 2020/4/26
  */
 @Data
-public class SenderConfig {
+public class Configuration {
 
-    private List<AbsSenderConfig> configs;
+    private List<AbsSenderConfig> configList;
 
-    public SenderConfig parseYml(String path) {
+    public Configuration parseYml(String path) {
         return null;
     }
 }

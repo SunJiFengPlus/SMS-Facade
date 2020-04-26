@@ -1,7 +1,7 @@
 package com.example.smsfacade.factory;
 
 import com.example.smsfacade.config.AbsSenderConfig;
-import com.example.smsfacade.config.SenderConfig;
+import com.example.smsfacade.config.Configuration;
 import com.example.smsfacade.sender.Sender;
 import lombok.Data;
 
@@ -16,8 +16,8 @@ public class SenderFactory {
 
     private List<AbsSenderConfig> configs;
 
-    public void register(SenderConfig senderConfig) {
-        configs = senderConfig.getConfigs();
+    public void register(Configuration configuration) {
+        configs = configuration.getConfigList();
     }
 
     public Sender getSender() {
