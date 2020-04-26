@@ -8,8 +8,4 @@ import com.example.smsfacade.bean.Message;
  */
 public interface Sender {
     boolean send(Message message);
-
-    void setNext(Sender sender);
-
-    Sender getNext();
 }
