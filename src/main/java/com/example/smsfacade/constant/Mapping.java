@@ -11,8 +11,8 @@ public enum Mapping {
     // TODO: 这样每次调用是不是都会创建一个对象?
     JUHE("juhe", new JuheConfig());
 
-    private String senderName;
-    private AbsSenderConfig config;
+    private final String senderName;
+    private final AbsSenderConfig config;
 
     public AbsSenderConfig of(String senderName) {
         return null;
