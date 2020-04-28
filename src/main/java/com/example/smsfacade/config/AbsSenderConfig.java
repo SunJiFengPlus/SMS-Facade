@@ -16,7 +16,11 @@ public abstract class AbsSenderConfig {
 
     }
 
+    // TODO: 这里要改
     public static AbsSenderConfig of(String name) {
+        if ("juhe".equals(name)) {
+            return new JuheConfig();
+        }
         return null;
     }
 }
