@@ -21,6 +21,6 @@ public abstract class AbsSenderConfig {
         if ("juhe".equals(name)) {
             return new JuheConfig();
         }
-        return null;
+        throw new RuntimeException("unknown sender name: " + name);
     }
 }

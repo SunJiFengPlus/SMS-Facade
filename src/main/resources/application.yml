@@ -1,3 +1,4 @@
 juhe:
-  appKey: "asdiahiuasidhiauwhdi"
-  url: "http://v.juhe.cn/sms/send"
+  urlPattern: "http://v.juhe.cn/sms/send/mobile=#{mobile}&tpl_id=#{templateId}&key={appKey}"
+  method: get
+  index: 0
