@@ -46,6 +46,12 @@
             <artifactId>okhttp</artifactId>
             <version>4.4.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.26</version>
+        </dependency>
     </dependencies>
 
     <build>
