@@ -17,14 +17,16 @@ public class Configuration {
     private List<AbsSenderConfig> configList;
 
     public Configuration parseYml(String fileName) {
-        Map<String, Map<String, String>> yaml = new Yaml().load(this.getClass().getClassLoader().getResourceAsStream(fileName));
+        Map<String, Map<String, Object>> yaml = new Yaml().load(this.getClass().getClassLoader().getResourceAsStream(fileName));
         yaml.forEach((k, v) -> {
             AbsSenderConfig senderConfig = AbsSenderConfig.of(k);
-            senderConfig.setAppKey(v.get("appkey"));
-            senderConfig.setMethod(v.get("method"));
-            senderConfig.setUrl(v.get("url"));
+            senderConfig.setMethod(v.get("method").toString());
+            senderConfig.setUrlPattern(v.get("url").toString());
+            senderConfig.setIndex(Integer.valueOf(v.get("index").toString()));
+            senderConfig.setParam((Map<String, String>) v.get("param"));
+            configList.add(senderConfig);
         });
 
-        return null;
+        return this;
     }
 }
