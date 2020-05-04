@@ -2,15 +2,18 @@ package com.example.smsfacade.config;
 
 import lombok.Data;
 
+import java.util.Map;
+
 /**
  * @author 孙继峰
  * @since 2020/4/26
  */
 @Data
 public abstract class AbsSenderConfig {
-    private String appKey;
-    private String url;
+    private String urlPattern;
     private String method;
+    private Integer index;
+    private Map<String, String> param;
 
     public void formatUrl() {
 
