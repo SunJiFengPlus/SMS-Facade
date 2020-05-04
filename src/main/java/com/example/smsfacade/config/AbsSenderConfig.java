@@ -1,5 +1,6 @@
 package com.example.smsfacade.config;
 
+import com.example.smsfacade.sender.Sender;
 import lombok.Data;
 
 import java.util.Map;
@@ -16,8 +17,10 @@ public abstract class AbsSenderConfig {
     private Map<String, String> param;
 
     public void formatUrl() {
-
+        // TODO
     }
+
+    public abstract Sender createSender();
 
     // TODO: 这里要改
     public static AbsSenderConfig of(String name) {

@@ -1,6 +1,7 @@
 package com.example.smsfacade.config;
 
-import lombok.Data;
+import com.example.smsfacade.sender.JuheSender;
+import com.example.smsfacade.sender.Sender;
 
 /**
  * @author 孙继峰
@@ -8,4 +9,8 @@ import lombok.Data;
  */
 public class JuheConfig extends AbsSenderConfig {
 
+    @Override
+    public Sender createSender() {
+        return new JuheSender(this);
+    }
 }
