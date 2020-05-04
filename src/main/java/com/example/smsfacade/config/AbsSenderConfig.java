@@ -4,6 +4,8 @@ import com.example.smsfacade.sender.Sender;
 import lombok.Data;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author 孙继峰
@@ -16,8 +18,17 @@ public abstract class AbsSenderConfig {
     private Integer index;
     private Map<String, String> param;
 
+    private static final Pattern paramPattern = Pattern.compile("#\\{\\w+}");
+
     public void formatUrl() {
-        // TODO
+        Matcher matcher = paramPattern.matcher(urlPattern);
+        while (matcher.find()) {
+            // group: #{url}
+            String group = matcher.group();
+            // paramKey: url
+            String paramKey = group.substring(2, group.length() - 1);
+            urlPattern = urlPattern.replaceFirst(group, param.getOrDefault(paramKey, group));
+        }
     }
 
     public abstract Sender createSender();
