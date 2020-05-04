@@ -1,6 +1,6 @@
 juhe:
   # lazy format, 发送时 format 剩余的参数
-  urlPattern: "http://v.juhe.cn/sms/send/mobile=#{mobile}&tpl_id=#{templateId}&key={appKey}"
+  urlPattern: "http://v.juhe.cn/sms/send/mobile=#{mobile}&tpl_id=#{templateId}&key=#{appKey}"
   # eager format, 可能是请求体里的参数, 也可能是 url 参数
   param:
     appKey: asdawdawdj
