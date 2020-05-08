@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.logging.log4j.util.Strings;
+
 /**
  * @author 孙继峰
  * @since 2020/4/26
@@ -20,15 +22,12 @@ public abstract class AbsSenderConfig {
 
     private static final Pattern paramPattern = Pattern.compile("#\\{\\w+}");
 
-    public void formatUrl() {
-        Matcher matcher = paramPattern.matcher(urlPattern);
-        while (matcher.find()) {
-            // group: #{url}
-            String group = matcher.group();
-            // paramKey: url
-            String paramKey = group.substring(2, group.length() - 1);
-            urlPattern = urlPattern.replaceFirst(group, param.getOrDefault(paramKey, group));
-        }
+    public void eagerFormat(Map<String, String> param) {
+        urlPattern = formatUrl(urlPattern, param);
+    }
+
+    public String formatUrl(String urlPattern, Map<String, String> param) {
+        return "";
     }
 
     public abstract Sender createSender();
