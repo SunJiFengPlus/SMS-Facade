@@ -2,6 +2,7 @@ package com.example.smsfacade.config;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,19 +16,11 @@ import org.yaml.snakeyaml.Yaml;
 @Data
 public class Configuration {
 
-    private List<AbsSenderConfig> configList;
+    public List<SenderConfig> parseYml(String fileName) {
+        List<SenderConfig> configList = new ArrayList<>();
+        Map<String, Map<String, String>> yaml = new Yaml().load(this.getClass().getClassLoader().getResourceAsStream(fileName));
 
-    public Configuration parseYml(String fileName) {
-        Map<String, Map<String, Object>> yaml = new Yaml().load(this.getClass().getClassLoader().getResourceAsStream(fileName));
-        yaml.forEach((k, v) -> {
-            AbsSenderConfig senderConfig = AbsSenderConfig.of(k);
-            senderConfig.setMethod(v.get("method").toString());
-            senderConfig.setUrlPattern(v.get("url").toString());
-            senderConfig.setIndex(Integer.valueOf(v.get("index").toString()));
-            senderConfig.setParam((Map<String, String>) v.get("param"));
-            configList.add(senderConfig);
-        });
-
-        return this;
+        yaml.forEach((k, v) -> configList.add(SenderConfig.of(k, v)));
+        return configList;
     }
 }
