@@ -2,8 +2,11 @@ package com.example.smsfacade.config;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.yaml.snakeyaml.Yaml;
 
@@ -15,7 +18,7 @@ import org.yaml.snakeyaml.Yaml;
 @Data
 public class Configuration {
 
-    private List<SenderConfig> configList;
+    private List<SenderConfig> configList = new LinkedList<>();
 
     public Configuration parseYml(String fileName) {
         Map<String, Map<String, String>> yaml = new Yaml().load(this.getClass().getClassLoader().getResourceAsStream(fileName));
