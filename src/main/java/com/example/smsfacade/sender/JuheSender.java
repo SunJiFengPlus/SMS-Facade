@@ -8,11 +8,6 @@ import com.example.smsfacade.config.SenderConfig;
  * @since 2020/4/11
  */
 public class JuheSender implements Sender {
-    private SenderConfig config;
-
-    public JuheSender(SenderConfig config) {
-        this.config = config;
-    }
 
     @Override
     public boolean send(Message message) {

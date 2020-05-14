@@ -5,6 +5,7 @@ import com.example.smsfacade.config.Configuration;
 import com.example.smsfacade.sender.Sender;
 import lombok.Data;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,15 +15,16 @@ import java.util.List;
 @Data
 public class SenderFactory {
 
-    private List<SenderConfig> configs;
+    private Iterator<SenderConfig> configs;
 
-    // TODO: 注册不应该放到这里, 应该放到 Configuration 中
     public void register(Configuration configuration) {
-        configs = configuration.getConfigList();
+        configs = configuration.getConfigList().iterator();
     }
 
     public Sender getSender() {
-        // TODO
-        return null;
+        if (configs.hasNext()) {
+            return configs.next().creatSender();
+        }
+        throw new RuntimeException("短信调用链已到达末尾");
     }
 }

@@ -1,5 +1,6 @@
 package com.example.smsfacade.config;
 
+import com.example.smsfacade.sender.Sender;
 import lombok.Data;
 
 import java.util.Map;
@@ -14,11 +15,13 @@ public abstract class SenderConfig {
     private String appKey;
     private Integer index;
 
-    // TODO
+    // TODO: 优化写法
     public static SenderConfig of(String name, Map<String, String> configParam) {
         if ("juhe".equals(name)) {
             return new JuheConfig();
         }
         throw new RuntimeException("unknown sender name: " + name);
     }
+
+    public abstract Sender creatSender();
 }
