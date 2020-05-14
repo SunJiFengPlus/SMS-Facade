@@ -1,4 +1,4 @@
-package com.example.smsfacade.sender;
+package com.example.smsfacade.sender.sms;
 
 import com.example.smsfacade.bean.Message;
 
@@ -7,7 +7,7 @@ import com.example.smsfacade.bean.Message;
  * @author 孙继峰
  * @since 2020/3/31
  */
-public interface Sender {
+public interface SmsSender {
     /**
      * 发送短信
      * @param message 短信内容

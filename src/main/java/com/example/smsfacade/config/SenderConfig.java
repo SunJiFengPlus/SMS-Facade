@@ -1,6 +1,6 @@
 package com.example.smsfacade.config;
 
-import com.example.smsfacade.sender.Sender;
+import com.example.smsfacade.sender.sms.SmsSender;
 import lombok.Data;
 
 import java.util.Map;
@@ -23,5 +23,5 @@ public abstract class SenderConfig {
         throw new RuntimeException("unknown sender name: " + name);
     }
 
-    public abstract Sender creatSender();
+    public abstract SmsSender creatSender();
 }

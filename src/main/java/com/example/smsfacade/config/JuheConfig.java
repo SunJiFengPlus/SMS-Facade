@@ -1,6 +1,6 @@
 package com.example.smsfacade.config;
 
-import com.example.smsfacade.sender.Sender;
+import com.example.smsfacade.sender.sms.SmsSender;
 
 /**
  * @author 孙继峰
@@ -9,7 +9,7 @@ import com.example.smsfacade.sender.Sender;
 public class JuheConfig extends SenderConfig {
     // TODO
     @Override
-    public Sender creatSender() {
+    public SmsSender creatSender() {
         return null;
     }
 }

@@ -2,11 +2,10 @@ package com.example.smsfacade.factory;
 
 import com.example.smsfacade.config.SenderConfig;
 import com.example.smsfacade.config.Configuration;
-import com.example.smsfacade.sender.Sender;
+import com.example.smsfacade.sender.sms.SmsSender;
 import lombok.Data;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author 孙继峰
@@ -21,7 +20,7 @@ public class SenderFactory {
         configs = configuration.getConfigList().iterator();
     }
 
-    public Sender getSender() {
+    public SmsSender getSender() {
         if (configs.hasNext()) {
             return configs.next().creatSender();
         }
