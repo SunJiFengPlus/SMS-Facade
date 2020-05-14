@@ -3,7 +3,7 @@ package com.example.smsfacade.sender;
 import com.example.smsfacade.bean.Message;
 
 /**
- * 发送短信
+ * 发送短信器
  * @author 孙继峰
  * @since 2020/3/31
  */
