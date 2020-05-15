@@ -11,14 +11,15 @@ import java.util.Map;
  */
 @Data
 public abstract class SenderConfig {
-    private String name;
-    private String appKey;
-    private Integer index;
+    protected String name;
+    protected String appKey;
+    protected Integer index;
+    protected Map<String, String> param;
 
     // TODO: 优化写法
     public static SenderConfig of(String name, Map<String, String> configParam) {
         if ("juhe".equals(name)) {
-            return new JuheConfig();
+            return new JuheConfig(configParam);
         }
         throw new RuntimeException("unknown sender name: " + name);
     }
