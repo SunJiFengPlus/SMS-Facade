@@ -25,4 +25,6 @@ public abstract class SenderConfig {
     }
 
     public abstract SmsSender creatSender();
+
+    public abstract void formatUrl();
 }

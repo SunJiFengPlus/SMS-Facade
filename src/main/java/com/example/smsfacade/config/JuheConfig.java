@@ -21,4 +21,10 @@ public class JuheConfig extends SenderConfig {
     public SmsSender creatSender() {
         return null;
     }
+
+    // TODO
+    @Override
+    public void formatUrl() {
+
+    }
 }
