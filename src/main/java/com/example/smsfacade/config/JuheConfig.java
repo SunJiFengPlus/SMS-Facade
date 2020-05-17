@@ -27,4 +27,10 @@ public class JuheConfig extends SenderConfig {
     public void formatUrl() {
 
     }
+
+    // TODO
+    @Override
+    public void formatBody() {
+
+    }
 }
