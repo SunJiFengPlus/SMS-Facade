@@ -22,13 +22,19 @@ public class JuheConfig extends SenderConfig {
         return null;
     }
 
-    // TODO
+    /**
+     * TODO
+     * eager format request url
+     */
     @Override
     public void formatUrl() {
 
     }
 
-    // TODO
+    /**
+     * TODO
+     * eager format request body
+     */
     @Override
     public void formatBody() {
 
