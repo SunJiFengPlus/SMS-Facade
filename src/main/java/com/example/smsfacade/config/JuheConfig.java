@@ -4,6 +4,8 @@ import com.example.smsfacade.sender.sms.SmsSender;
 
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
+
 /**
  * @author 孙继峰
  * @since 2020/5/8
@@ -11,7 +13,9 @@ import java.util.Map;
 public class JuheConfig extends SenderConfig {
     private static final String URL = "http://v.juhe.cn/sms/send?mobile=手机号码&tpl_id=短信模板ID&tpl_value=模板参数&key=appKey";
 
+    // TODO
     public JuheConfig(Map<String, String> configParam) {
+        BeanUtils.copyProperties(configParam, this);
 
     }
 
@@ -22,21 +26,10 @@ public class JuheConfig extends SenderConfig {
         return null;
     }
 
-    /**
-     * TODO
-     * eager format request url
-     */
+    // TODO
     @Override
-    public void formatUrl() {
-
+    public SenderConfig eagerFormat() {
+        return null;
     }
 
-    /**
-     * TODO
-     * eager format request body
-     */
-    @Override
-    public void formatBody() {
-
-    }
 }
