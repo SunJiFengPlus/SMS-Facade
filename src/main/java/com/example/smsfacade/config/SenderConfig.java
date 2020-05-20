@@ -15,7 +15,6 @@ public abstract class SenderConfig {
     protected String appKey;
     protected Integer index;
 
-    // TODO: 优化写法
     public static SenderConfig of(String name, Map<String, String> configParam) {
         if ("juhe".equals(name)) {
             return new JuheConfig(configParam).eagerFormat();
