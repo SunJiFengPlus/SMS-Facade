@@ -8,6 +8,12 @@ import com.example.smsfacade.bean.Message;
  */
 public class JuheSmsSender extends AbsSmsSender {
 
+    private final String url;
+
+    public JuheSmsSender(String url) {
+        this.url = url;
+    }
+
     @Override
     public boolean send(Message message) {
 

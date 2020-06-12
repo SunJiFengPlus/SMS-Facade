@@ -1,5 +1,6 @@
 package com.example.smsfacade.config;
 
+import com.example.smsfacade.sender.sms.JuheSmsSender;
 import com.example.smsfacade.sender.sms.SmsSender;
 
 import java.util.Map;
@@ -11,7 +12,7 @@ import org.springframework.beans.BeanUtils;
  * @since 2020/5/8
  */
 public class JuheConfig extends SenderConfig {
-    private static final String URL = "http://v.juhe.cn/sms/send?mobile=手机号码&tpl_id=短信模板ID&tpl_value=模板参数&key=appKey";
+    private static final String URL = "http://v.juhe.cn/sms/send?mobile=#{mobile}&tpl_id=#{templateId}&tpl_value=#{templateValue}&key={appKey}";
 
     // TODO
     public JuheConfig(Map<String, String> configParam) {
@@ -23,13 +24,12 @@ public class JuheConfig extends SenderConfig {
     // TODO
     @Override
     public SmsSender creatSender() {
-        return null;
+        return new JuheSmsSender(URL);
     }
 
-    // TODO
     @Override
     public SenderConfig eagerFormat() {
-        return null;
+        return this;
     }
 
 }
