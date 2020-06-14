@@ -14,7 +14,7 @@ import org.springframework.beans.BeanUtils;
  */
 @Getter
 public class JuheConfig extends SenderConfig {
-    public String url = "http://v.juhe.cn/sms/send?mobile=#{mobile}&tpl_id=#{templateId}&tpl_value=#{templateValue}&key={#appKey}";
+    public String url = "http://v.juhe.cn/sms/send?mobile=#{phone}&tpl_id=#{templateId}&tpl_value=#{templateValue}&key={#appKey}";
 
     public JuheConfig(Map<String, String> configParam) {
         BeanUtils.copyProperties(configParam, this);
